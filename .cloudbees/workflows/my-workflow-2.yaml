@@ -1,0 +1,16 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: CI with custom action
+on:
+  push:
+    branches:
+      - main
+jobs:
+  ci-job:
+    steps:
+      - name: checkout
+        uses: https://github.com/cloudbees-io/checkout@v1
+      - name: Run my cloudbees action                         
+        uses: MargoBGH/my-cloudbees-action@main   
+        with:
+          recipient: CloudBees                       
